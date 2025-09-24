@@ -9,8 +9,15 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "neillenhoffcmc.github.io",
+    "title": "Neil Lenhoff",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+    "text": "I am in Professor Jo Hardin’s Foundations of Data Science in R course, DS002R, in the Fall of 2025. I am excited to learn more about data visualization techniques. In my free-time, I like riding horses and making chocolate chip pancakes."
+  },
+  {
+    "objectID": "Data Visualization.html",
+    "href": "Data Visualization.html",
+    "title": "Neil Lenhoff",
+    "section": "",
+    "text": "“canada_births_1991_2022”\nBirths in Canada from 1991 to 2022, monthly and annually\nJon Harmon and Tracy Teal\nJanuary 9, 2024\nhtml\n\n\n\n\n\n\n\n\n\n“age_gaps”\nThe age gap between the famous movie couples.\nJon Harmon\nFebruary 14, 2023\nhtml"
   }
 ]

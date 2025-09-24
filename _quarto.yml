@@ -1,24 +1,22 @@
 project:
   type: website
   output-dir: docs
-  
-# ~ additional metadata excluded for brevity ~
 
 website:
-  title: "neillenhoffcmc.github.io"
+  title: "Neil Lenhoff"
   navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+   left:
+     - href: index.qmd
+       text: Home
+     - about.qmd
+     - resources.qmd
+     - href: Data Visualization.qmd
+       text: Data Visualization
 
 format:
   html:
-    theme:
-      - cosmo
-      - brand
+    theme: 
+      light: minty
+      dark: solar
     css: styles.css
-    toc: true
-
-editor: visual
 

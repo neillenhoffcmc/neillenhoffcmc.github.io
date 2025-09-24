@@ -1,11 +1,22 @@
 ---
-title: "neillenhoffcmc.github.io"
+title: "Neil Lenhoff"
+image: IMG_4358.jpeg
+toc: false
+about: 
+  template: jolla
+  image-shape: round
+  image-width: 17em
+  links:
+    - text: LinkedIn
+      href: https://www.linkedin.com/in/neil-lenhoff-8265a6382
+    - text: GitHub
+      href: https://github.com/neillenhoffcmc
+    - text: Email
+      href: mailto:nlenhoff22@cmc.edu
+---
+  
+I am in Professor Jo Hardin's Foundations of Data Science in R course, DS002R, in the Fall of 2025. I am excited to learn more about data visualization techniques. In my free-time, I like riding horses and making chocolate chip pancakes. <p style = "font-size: 8px;">
 ---
 
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
-
-```{r}
-1 + 1
+```{}
 ```
