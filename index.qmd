@@ -14,9 +14,12 @@ about:
     - text: Email
       href: mailto:nlenhoff22@cmc.edu
 ---
-  
-I am in Professor Jo Hardin's Foundations of Data Science in R course, DS002R, in the Fall of 2025. I am excited to learn more about data visualization techniques. In my free-time, I like riding horses and making chocolate chip pancakes. <p style = "font-size: 8px;">
----
 
-```{}
+I am in Professor Jo Hardin's Foundations of Data Science in R course, DS002R, in the Fall of 2025. I am excited to learn more about data visualization techniques. In my free-time, I like riding horses and making chocolate chip pancakes.
+
+<p style = "font-size: 8px;">
+
+------------------------------------------------------------------------
+
+```         
 ```

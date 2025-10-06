@@ -12,6 +12,8 @@ website:
      - resources.qmd
      - href: Data Visualization.qmd
        text: Data Visualization
+     - href: Data Visualization 2.qmd
+       text: Data Visualization 2
 
 format:
   html:
