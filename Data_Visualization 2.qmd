@@ -1,0 +1,23 @@
+---
+title: "Data Visualization 2"
+editor: visual
+---
+
+```{r}
+library(ggplot2)
+library(dplyr)
+```
+
+"age_gaps"\
+The age gap between the famous movie couples.\
+Jon Harmon\
+February 14, 2023\
+html\
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+df <- read.csv("age_gaps.csv")
+ggplot(df, aes(x = age_difference)) +
+  geom_histogram(binwidth = 5, color = "white") +
+  labs(title = "Varying Age Differences in Famous Movie Couples",
+       x = "Age Difference (years)", y = "Couples")
+```

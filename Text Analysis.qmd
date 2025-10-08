@@ -1,0 +1,114 @@
+---
+title: "Text Analysis"
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+office <- read.csv("the-office_lines.csv")
+```
+
+```{r}
+office
+```
+
+```{r}
+
+office %>% mutate(Line2 = str_split(Line, " ")) %>% 
+  unnest_longer(Line2)
+
+```
+
+```{r}
+allline <- str_flatten(office$Line)
+allline
+```
+
+```{r}
+str_count(allline, "(j|J)esus(?!(C|c)hrist)")
+str_count(allline, "(j|J)esus(?= (C|c)hrist)")
+```
+
+```{r}
+str_count(allline, "(j|J)esus")
+```
+
+```{r}
+str_count(allline, "(j|J)esus (C|c)hrist")
+```
+
+```{r}
+library(ggplot2)
+
+df <- data.frame(
+  group = c("Jesus Christ", "Jesus"),
+  value = c(2, 30)
+)
+
+ggplot(df, aes(x = group, y = value)) +
+  geom_point(shape = 3, size = 6, stroke = 1.5, color = "gold") +
+  labs(title = "How Many Times Jesus Was Said In The Office", 
+       x = "Phrase Said", y = "Number of Times Said") 
+
+
+```
+
+This graph illustrates how many times the word "Jesus" was said in "The Office." The reason I chose Jesus is because I know the word is often followed by Christ which fulfilled my requirement for at least one lookaround.
+
+```{r}
+plot2<-office %>% mutate(Line2 = str_split(Line, " ")) %>% 
+  unnest_longer(Line2)
+```
+
+```{r}
+plot2 %>% mutate(office = if_else(tolower(Line2) == "office", TRUE, FALSE)) %>% group_by(Character) %>% 
+  summarise(word = n(), office = sum(office)) %>% filter(office > 0)
+```
+
+```{r}
+plot2_office <- plot2 %>% mutate(office = if_else(tolower(Line2) == "office", TRUE, FALSE)) %>% group_by(Character) %>% 
+  summarise(word = n(), office = sum(office)) %>% filter(office > 0)
+```
+
+```{r}
+library(readr)
+write_csv(plot2_office, "~/Downloads/plot2_office.csv") 
+
+```
+
+```{}
+```
+
+```{r}
+library(tidyverse)
+plot2_office <- read_csv("plot2_office.csv")
+main_chars <- c(
+  "Michael", "Dwight", "Jim", "Pam", "Andy", "Ryan", "Stanley",
+  "Phyllis", "Angela", "Kevin", "Oscar", "Meredith", "Creed",
+  "Toby", "Kelly", "Erin", "Darryl"
+)
+plot2_main <- plot2_office %>%
+  filter(Character %in% main_chars) %>%
+  mutate(label = paste0(Character, " (", office, ")"))  
+plot2_main %>%
+  ggplot(aes(x = "", y = office, fill = label)) +
+  geom_bar(stat = "identity", width = 1, color = "white") +
+  coord_polar("y", start = 0) +
+  scale_fill_manual(values = c(
+    "#E41A1C", "#377EB8", "#4DAF4A", "#984EA3",
+    "#FF7F00", "#FFFF33", "#A65628", "#F781BF",
+    "#999999", "#66C2A5", "#FC8D62", "#8DA0CB",
+    "#E78AC3", "#A6D854", "#FFD92F", "#E5C494"
+  )) +
+  labs(title = "Times Each Main Office Character Said 'Office'") +
+  theme_void() +
+  theme(
+    legend.title = element_blank(),
+    plot.title = element_text(hjust = 0.5, size = 16, face = "bold"),
+    legend.text = element_text(size = 10)
+  )
+
+```

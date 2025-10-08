@@ -5,15 +5,20 @@ project:
 website:
   title: "Neil Lenhoff"
   navbar:
-   left:
-     - href: index.qmd
-       text: Home
-     - about.qmd
-     - resources.qmd
-     - href: Data Visualization.qmd
-       text: Data Visualization
-     - href: Data Visualization 2.qmd
-       text: Data Visualization 2
+    left:
+      - text: Home
+        href: index.qmd
+      - text: About
+        href: about.qmd
+      - text: Resources
+        href: resources.qmd
+      - text: Data Visualization
+        menu:
+          - text: Visualization 1
+            href: Data_Visualization.qmd
+          - text: Visualization 2
+            href: Data_Visualization_2.qmd
+
 
 format:
   html:

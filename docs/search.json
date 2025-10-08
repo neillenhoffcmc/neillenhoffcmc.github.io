@@ -26,5 +26,12 @@
     "title": "Data Visualization 2",
     "section": "",
     "text": "library(ggplot2)\nlibrary(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\n\n“age_gaps”\nThe age gap between the famous movie couples.\nJon Harmon\nFebruary 14, 2023\nhtml"
+  },
+  {
+    "objectID": "Data_Visualization_2.html",
+    "href": "Data_Visualization_2.html",
+    "title": "Data Visualization 2",
+    "section": "",
+    "text": "library(ggplot2)\nlibrary(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\n\n“age_gaps”\nThe age gap between the famous movie couples.\nJon Harmon\nFebruary 14, 2023\nhtml"
   }
 ]

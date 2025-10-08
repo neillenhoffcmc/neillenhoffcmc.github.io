@@ -1,0 +1,24 @@
+---
+title: ""
+format: "html"
+---
+"canada_births_1991_2022" \
+Births in Canada from 1991 to 2022, monthly and annually \
+Jon Harmon and Tracy Teal \
+January 9, 2024 \
+html
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(ggplot2)
+library(dplyr)
+df <- read.csv("canada_births_1991_2022.csv")
+yearly <- df |>
+  group_by(year) |>
+  summarize(total_births = sum(births))
+
+ggplot(yearly, aes(x = year, y = total_births)) +
+  geom_line(color = "blue", size = 1) +
+  geom_point(color = "red") +
+  labs(title = "Births in Canada from 1991 to 2022",
+       x = "Year",
+       y = "# of Births")
+```
