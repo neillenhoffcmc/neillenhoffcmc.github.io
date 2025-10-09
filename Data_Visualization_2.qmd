@@ -3,7 +3,7 @@ title: "Data Visualization 2"
 editor: visual
 ---
 
-```{r}
+```{r, include=FALSE}
 library(ggplot2)
 library(dplyr)
 ```

@@ -5,7 +5,7 @@ editor: visual
 I got this data from the Kaggle website https://www.kaggle.com/datasets/fabriziocominetti/the-office-lines
 The direct link is not longer active, https://www.officequotes.net/ 
 However, the cited source to the TV show is The Office. Created by Greg Daniels, performances by Steve Carell, Rainn Wilson, and John Krasinski, NBC, 2005–2013.
-```{r}
+```{r, include=FALSE}
 library(tidyverse)
 ```
 
@@ -13,9 +13,7 @@ library(tidyverse)
 office <- read.csv("the-office_lines.csv")
 ```
 
-```{r}
-head(office)
-```
+
 
 ```{r}
 
