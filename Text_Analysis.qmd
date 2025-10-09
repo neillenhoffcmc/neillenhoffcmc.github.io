@@ -14,7 +14,7 @@ office <- read.csv("the-office_lines.csv")
 ```
 
 ```{r}
-office
+head(office)
 ```
 
 ```{r}
@@ -70,7 +70,7 @@ plot2<-office %>% mutate(Line2 = str_split(Line, " ")) %>%
 ```{r}
 plot3 <- plot2 %>% mutate(office = str_count(Line2, regex("\\boffice\\b"))) %>% group_by(Character) %>% 
   summarise(word = n(), office = sum(office)) %>% filter(office > 0)
-plot3
+head(plot3)
 ```
 
 ```{r}
