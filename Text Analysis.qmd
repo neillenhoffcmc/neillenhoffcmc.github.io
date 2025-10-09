@@ -19,11 +19,13 @@ office
 
 office %>% mutate(Line2 = str_split(Line, " ")) %>% 
   unnest_longer(Line2)
-
+office <- office %>%
+  mutate(Line2 = str_to_lower(Line2))
 ```
 
 ```{r}
-allline <- str_flatten(office$Line)
+office$Line2 <- stringr::str_to_lower(office$Line2)
+
 allline
 ```
 

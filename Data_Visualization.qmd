@@ -6,6 +6,8 @@ format: "html"
 Births in Canada from 1991 to 2022, monthly and annually \
 Jon Harmon and Tracy Teal \
 January 9, 2024 \
+https://github.com/rfordatascience/tidytuesday/blob/main/data/2024/2024-01-09/canada_births_1991_2022.csv \
+The dataset this comes from https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1310041501&pickMembers%5B0%5D=3.1&cubeTimeFrame.startYear=1991&cubeTimeFrame.endYear=2022&referencePeriods=19910101%2C20220101 , https://api.nhle.com/stats/rest/en/team , https://api-web.nhle.com/v1/ \
 html
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(ggplot2)

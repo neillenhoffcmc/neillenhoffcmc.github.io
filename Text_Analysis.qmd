@@ -1,0 +1,104 @@
+---
+title: "Text Analysis"
+editor: visual
+---
+I got this data from the Kaggle website https://www.kaggle.com/datasets/fabriziocominetti/the-office-lines
+The direct link is not longer active, https://www.officequotes.net/ 
+However, the cited source to the TV show is The Office. Created by Greg Daniels, performances by Steve Carell, Rainn Wilson, and John Krasinski, NBC, 2005–2013.
+```{r}
+library(tidyverse)
+```
+
+```{r}
+office <- read.csv("the-office_lines.csv")
+```
+
+```{r}
+office
+```
+
+```{r}
+
+allline<-office %>% 
+  mutate(Line2 = str_split(Line, " ")) %>% 
+  unnest_longer(Line2) %>%
+  mutate(Line2 = str_to_lower(Line2))
+library(stringr)
+pat <- regex("\\bjesus\\b\\s+\\bchrist\\b", ignore_case = TRUE)
+total <- sum(str_count(office$Line, pat), na.rm = TRUE)
+total
+
+```
+
+```{r}
+allline<-office %>% 
+  mutate(Line2 = str_split(Line, " ")) %>% 
+  unnest_longer(Line2) %>%
+  mutate(Line2 = str_to_lower(Line2))
+library(stringr)
+allline$Line2 <- as.character(allline$Line2)
+pat <- regex("\\bjesus\\b(?!\\s+christ\\b)", ignore_case = TRUE)
+counts <- str_count(allline$Line2, pat)
+total_not_jesus_christ <- sum(counts, na.rm = TRUE)
+total_not_jesus_christ
+```
+
+
+```{r}
+library(ggplot2)
+
+df <- data.frame(
+  group = c("Jesus Christ", "Jesus"),
+  value = c(2, 29)
+)
+
+ggplot(df, aes(x = group, y = value)) +
+  geom_point(shape = 3, size = 6, stroke = 1.5, color = "gold") +
+  labs(title = "How Many Times Jesus Was Said In The Office", 
+       x = "Phrase Said", y = "Number of Times Said") 
+
+
+```
+
+This graph illustrates how many times the word "Jesus" was said in "The Office." The insights I gained from my plot is how often "Christ" follows "Jesus." The graph shows the frequency of the collocation. It is suprising how uncommon it occurs.
+
+```{r}
+plot2<-office %>% mutate(Line2 = str_split(Line, " ")) %>% 
+  unnest_longer(Line2)
+```
+
+```{r}
+plot3 <- plot2 %>% mutate(office = str_count(Line2, regex("\\boffice\\b"))) %>% group_by(Character) %>% 
+  summarise(word = n(), office = sum(office)) %>% filter(office > 0)
+plot3
+```
+
+```{r}
+library(tidyverse)
+main_chars <- c(
+  "Michael", "Dwight", "Jim", "Pam", "Andy", "Ryan", "Stanley",
+  "Phyllis", "Angela", "Kevin", "Oscar", "Meredith", "Creed",
+  "Toby", "Kelly", "Erin", "Darryl"
+)
+plot2_main <- plot3 %>%
+  filter(Character %in% main_chars) %>%
+  mutate(label = paste0(Character, " (", office, ")"))  
+plot2_main %>%
+  ggplot(aes(x = "", y = office, fill = label)) +
+  geom_bar(stat = "identity", width = 1, color = "white") +
+  coord_polar("y", start = 0) +
+  scale_fill_manual(values = c(
+    "#E41A1C", "#377EB8", "#4DAF4A", "#984EA3",
+    "#FF7F00", "#FFFF33", "#A65628", "#F781BF",
+    "#999999", "#66C2A5", "#FC8D62", "#8DA0CB",
+    "#E78AC3", "#A6D854", "#FFD92F", "#E5C494", "#00FF66"
+  )) +
+  labs(title = "Times Each Main Office Character Said 'Office'") +
+  theme_void() +
+  theme(
+    legend.title = element_blank(),
+  )
+
+```
+
+This graph illustrates how many times the main characters of the "The Office" said office. Besides the pie chart, there is also a table with character names and the frequency of how often they said the word. The insights I gained from my plot is Michael, the main character, is the most frequent user of the word "office", but no character makes up the majority.

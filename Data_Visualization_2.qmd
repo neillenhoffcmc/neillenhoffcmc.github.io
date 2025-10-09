@@ -11,7 +11,11 @@ library(dplyr)
 "age_gaps"\
 The age gap between the famous movie couples.\
 Jon Harmon\
-February 14, 2023\
+February 14, 2023
+
+<https://github.com/rfordatascience/tidytuesday/tree/main/data/2023/2023-02-14>
+
+The data comes from <https://hollywoodagegap.com/> , <https://www.data-is-plural.com/archive/2018-02-07-edition/>\
 html\
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}

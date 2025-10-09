@@ -18,6 +18,10 @@ website:
             href: Data_Visualization.qmd
           - text: Visualization 2
             href: Data_Visualization_2.qmd
+      - text: Text Analysis
+            href: Text_Analysis.qmd
+      
+            
 
 
 format:
