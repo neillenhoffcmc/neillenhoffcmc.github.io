@@ -20,6 +20,9 @@ website:
             href: Data_Visualization_2.qmd
           - text: Text Analysis
             href: Text_Analysis.qmd
+          - text: Simulation Study
+            href: Simulation_Study.qmd
+         
 
       
             
