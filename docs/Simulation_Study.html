@@ -347,11 +347,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#libraries" id="toc-libraries" class="nav-link active" data-scroll-target="#libraries">Libraries</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries">Libraries</a></li>
   <li><a href="#import-data" id="toc-import-data" class="nav-link" data-scroll-target="#import-data">Import Data</a></li>
   <li><a href="#data-manipulaton" id="toc-data-manipulaton" class="nav-link" data-scroll-target="#data-manipulaton">Data Manipulaton</a></li>
   <li><a href="#preliminary-data-visualizations" id="toc-preliminary-data-visualizations" class="nav-link" data-scroll-target="#preliminary-data-visualizations">Preliminary Data Visualizations</a></li>
   <li><a href="#permutation" id="toc-permutation" class="nav-link" data-scroll-target="#permutation">Permutation</a></li>
+  <li><a href="#h₀-sampling-distribution" id="toc-h₀-sampling-distribution" class="nav-link" data-scroll-target="#h₀-sampling-distribution">H₀ Sampling Distribution</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -362,7 +365,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Pittsburgh Penguin Proportion Permutation</h1>
-<p class="subtitle lead">Understanding Home-Ice Advantage</p>
+<p class="subtitle lead">Understanding Home-Ice Advantage In NHL Games Using Penguins Data</p>
 </div>
 
 
@@ -391,7 +394,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><img src="penguin.jpg" class="img-fluid"> Picture from <a href="https://www.pensburgh.com/analysis/68323/the-five-biggest-surprises-of-the-pittsburgh-penguins-season-so-far">Pensburgh</a> ### Introduction We investigated whether the Pittsburgh Penguins’ have a home ice advantage using a permutation test. Our outcome is game result (W/L), and our explanatory variable is location of the game (Home/Away). We first summarized the observed home–away difference. Then we simulated the null by shuffling the location labels. Finally we compared the observed statistic to the null distribution to assess significance.</p>
+<p><img src="penguin.jpg" class="img-fluid"> Picture from <a href="https://www.pensburgh.com/analysis/68323/the-five-biggest-surprises-of-the-pittsburgh-penguins-season-so-far">Pensburgh</a></p>
+<section id="introduction" class="level3">
+<h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
+<p>We investigated whether the Pittsburgh Penguins’ have a home-ice advantage using a permutation test. Our outcome is game result (W/L), and our explanatory variable is location of the game (Home/Away). We attempted to model the existence of home-ice advantage on NHL games. For the purpose of the project, we looked only at the Pittsburgh Penguins. According to our expertise, the Penguins generally represent an average NHL team. Also, this is a shoutout to the palmer penguins package. We first summarized the observed home–away difference. Then we simulated the null by shuffling the location labels. Finally we compared the observed statistic to the null distribution to assess significance.</p>
+</section>
 <section id="libraries" class="level3">
 <h3 class="anchored" data-anchor-id="libraries">Libraries</h3>
 <p>The following are the libraries that were used in this permutation test.</p>
@@ -438,7 +445,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="preliminary-data-visualizations" class="level3">
 <h3 class="anchored" data-anchor-id="preliminary-data-visualizations">Preliminary Data Visualizations</h3>
-<p>We included this graph below to illustrate the proportion of home to away games for the Pittsburgh Penguins in a given season. The reason we felt the need to perform this task is because we wanted to make sure that there was not a disproportionate percent of home or away games that would affect their win totals and/or percentages.</p>
+<p>We included this graph below to illustrate the proportion of home to away games for the Pittsburgh Penguins in a given season. The reason we felt the need to perform this task is because we wanted to make sure that there was not a disproportionate percent of home or away games over time that would affect their win totals and/or percentages.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pit <span class="sc">|&gt;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(season, location) <span class="sc">|&gt;</span></span>
@@ -455,7 +462,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Simulation_Study_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Simulation_Study_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -480,7 +487,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Simulation_Study_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Simulation_Study_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -488,7 +495,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="permutation" class="level3">
 <h3 class="anchored" data-anchor-id="permutation">Permutation</h3>
-<p>However, we elected to perform a permutation to confirm that the team being at home leads to a higher percent of winning overall in comparison to playing away. Our null hypothesis was that the proportion of wins at home and away is equal. Below we calculated our sample statistic. Our sample statistic was the difference between the home and away win proportions. In other words, proportion of wins at home subtracted by proportion of wins away.</p>
+<p>We elected to perform a permutation test to confirm that the team being at home leads to a higher percent of winning overall in comparison to playing away. Our null hypothesis was that the proportion of wins at home and away is equal. To make it more clear, the null hypothesis (H₀) is that the proportion of wins at home and away are equal for NHL games (no home-ice advantage). The alternative hypothesis (H₁) is that the proportion of wins at home is greater than the proportion of wins away for NHL games. Below we calculated our sample statistic which was only the Pittsburgh Penguins (1984-2020) to generalize a home-ice advantage. Our sample statistic was the difference between the home and away win proportions. In other words, proportion of wins at home subtracted by proportion of wins away.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sample_statistics <span class="ot">&lt;-</span> pit <span class="sc">|&gt;</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(location) <span class="sc">|&gt;</span></span>
@@ -502,70 +509,62 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] 0.1533897</code></pre>
 </div>
 </div>
-<p>To see if we are to reject the null at a population level, we randomly shuffled location. We did this to simulate what outcomes would look like if location assignments were random. This is because if there was no home advantage, the difference in win proportions after random shuffling should still be ~0.</p>
+<p>To create a null hypothesis sampling distribution, we randomly shuffled our Penguins location data. We did this to simulate what outcomes would look like if location assignments were random. We want to test whether there is a home-ice advantage by randomly shuffling the “Home” and “Away” labels and recalculating the difference between the shuffle and the sample value each time. The <code>perm_stat</code> function performed this permutation.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>pit <span class="sc">|&gt;</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">location_perm =</span> <span class="fu">sample</span>(location)) <span class="sc">|&gt;</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(location_perm) <span class="sc">|&gt;</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">prop_of_wins =</span> <span class="fu">mean</span>(outcome <span class="sc">==</span> <span class="st">"W"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> location_perm,</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> prop_of_wins) <span class="sc">|&gt;</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">diff =</span> Home <span class="sc">-</span> Away) <span class="sc">|&gt;</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(diff)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.02599602</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>perm_stat <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  pit <span class="sc">|&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">location_perm =</span> <span class="fu">sample</span>(location)) <span class="sc">|&gt;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(location_perm) <span class="sc">|&gt;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">prop_of_wins =</span> <span class="fu">mean</span>(outcome <span class="sc">==</span> <span class="st">"W"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> location_perm,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">values_from =</span> prop_of_wins) <span class="sc">|&gt;</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">diff =</span> Home <span class="sc">-</span> Away) <span class="sc">|&gt;</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(diff)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div>
-<p>As previously stated, we want to test whether there is a home-ice advantage by randomly shuffling the “Home” and “Away” labels and recalculating the difference between the shuffle and the sample value each time. The perm_stat() function performed this permutation.</p>
+<p>We then repeated this process many times to create a null hypothesis sampling distribution. So I used <code>map_dbl()</code>. We ran the function 2,000 times and stored each simulated difference in a numeric vector. With this we were able to build a null distribution to compare against the observed difference.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>perm_stat <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  pit <span class="sc">|&gt;</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">location_perm =</span> <span class="fu">sample</span>(location)) <span class="sc">|&gt;</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(location_perm) <span class="sc">|&gt;</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">prop_of_wins =</span> <span class="fu">mean</span>(outcome <span class="sc">==</span> <span class="st">"W"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> location_perm,</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">values_from =</span> prop_of_wins) <span class="sc">|&gt;</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">diff =</span> Home <span class="sc">-</span> Away) <span class="sc">|&gt;</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(diff)</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>perm_stat_list <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2000</span>, perm_stat)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>perm_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">perms =</span> perm_stat_list)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>However, we wanted to repeat this process many times so I used map_dbl(). We ran the function 2,000 times and stored each simulated difference in a numeric vector. With this we were able to build a null distribution to compare against the observed difference.</p>
+</section>
+<section id="h₀-sampling-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="h₀-sampling-distribution">H₀ Sampling Distribution</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>perm_stat_list <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2000</span>, perm_stat)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>perm_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">perms =</span> perm_stat_list)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>perm_df <span class="sc">|&gt;</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> perms)) <span class="sc">+</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> sample_statistics, <span class="at">color =</span> <span class="st">"#d6a53a"</span>, </span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">linewidth =</span> <span class="fl">1.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>)<span class="sc">+</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Null Distribution of the Home–Away Win Proportion Difference"</span>,</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Dashed Gold Line Is The Sample Statistic"</span>,</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Difference of the Proportion of Wins and Losses (Home - Away)"</span>,</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Number of Simulations"</span>) <span class="sc">+</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>perm_df <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> perms)) <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> sample_statistics, <span class="at">color =</span> <span class="st">"#d6a53a"</span>, </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">linewidth =</span> <span class="fl">1.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>)<span class="sc">+</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Null Distribution of the Home–Away Win Proportion Difference"</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Dashed Gold Line Is The Sample Statistic"</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Difference of the Proportion of Wins and Losses (Home - Away)"</span>,</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Number of Simulations"</span>) <span class="sc">+</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Simulation_Study_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Simulation_Study_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>The plot above showed that most simulated win-proportion differences is near zero. These values are typical if there’s no home-ice advantage. The dashed gold line, the sample statistic, is far to the right of the null distribution. Because such the extreme value is unlikely to occur by random chance, it can be inferred that playing at home increases the proportion of winning. This graph implies a true home-ice advantage.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>perm_df <span class="sc">|&gt;</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize</span>(<span class="at">p_value =</span> <span class="fu">mean</span>(perm_df <span class="sc">&gt;=</span> sample_statistics))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>perm_df <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize</span>(<span class="at">p_value =</span> <span class="fu">mean</span>(perm_df <span class="sc">&gt;=</span> sample_statistics))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  p_value
 1       0</code></pre>
 </div>
 </div>
-<p>A p-value of 0 suggests that none of the 2,000 random permutations produced a difference at least as large as the observed one. This indicates the observed home–away win difference was very unlikely to occur by chance. This provided strong evidence of a home-ice advantage. The permutation test showed that location of the game has a statistically significant effect on winning. ### Conclusion The observed home–away win proportion difference lies in the extreme tail of the null distribution (two-sided p &lt; 0.001). This indicates the difference is unlikely under the null. We reject the null. This supports a real home-ice advantage. Results are robust to randomization with 2,000 permutations. Future work could adjust for opponent strength in a given season.</p>
+<p>A p-value of 0 suggests that none of the 2,000 random permutations produced a difference at least as large as the observed one. This indicates the observed home–away win difference was very unlikely to occur by chance. This provided strong evidence of a home-ice advantage. The permutation test showed that location of the game has a statistically significant effect on winning.</p>
+</section>
+<section id="conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
+<p>The observed home–away win proportion difference lies in the extreme tail of the null distribution (two-sided p &lt; 0.001). This indicates the difference is unlikely under the null. We reject the null. This supports a real home-ice advantage. Results are robust to randomization with 2,000 permutations. Future work could adjust for opponent strength in a given season.</p>
 
 
 </section>
