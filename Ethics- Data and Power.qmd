@@ -1,0 +1,45 @@
+---
+title: "Ethics: Data and Power"
+subtitle: 'COMPAS and Racial Profiling in Courts'
+date: "November 10, 2025"
+author: "Neil Lenhoff"
+format: html
+toc: true # Table of contents
+execute: 
+  warning: false
+  message: false
+  error: false
+  echo: false
+  eval: true
+---
+
+### Introduction
+
+The COMPAS (Correctional Offender Management Profiling for Alternative Sanctions) algorithm was designed to predict a given defendant’s probability to re-offend. It has been used in U.S. states like New York, Wisconsin, California and Florida. A paper published in 2016 by ProPublica led to ethical questions being raised regarding the use of COMPAS. In the paper, ProPublica reported that <u>the algorithm incorrectly categorized African American defendants as “high risk” at nearly twice the rate as their white counterparts</u>. It raised serious ethical concerns about racial profiling in the COMPAS predictive model. In response Northpointe, the company that developed COMPAS, put out their own study (Dieterich et al. 2016). In it they countered the claim of racial bias and argued that COMPAS generated similar predictive accuracy across race. Their two papers lead not only to conversation about COMPAS but larger debates regarding fairness and power in data science.
+
+
+### 1. What is the permission structure for using the data? Was it followed?
+
+The first ethical dimension to examine in the COMPAS model was the consent structure and how permissions were given in the collection of data. The COMPAS algorithm is trained on defendant data in which these defendants never provided informed consent. The data in question, including criminal records, prior arrests, and most importantly demographics, were not collected voluntarily but rather through the justice system. Furthermore, because the COMPAS algorithm is proprietary, neither the affected defendants nor the public know precisely how the data is used. This clearly undermines the transparency principle of continuous discussion regarding methodology and permissions. This is especially important considering the fact that marginalized groups appear to be profiled by COMPAS’ model through the usage of their demographic data. Since the training model was not voluntarily given nor able to be shared transparently with the public, its use raises serious ethical concerns.
+
+### 2. Who was measured? Are those individuals representative of the people to whom we’d like to generalize / apply the algorithm?
+
+A second dimension is that this algorithm will be applied to all individuals in the states that use them so it is important that the data used to train the algorithm is representative of the population. Northpointe admits that the COMPAS model was trained on real defendant data. Studies have shown that black communities are over-policed (Densley, 2021). The issue in the data that was used to create the model is that the biased higher arrest rates could in turn inflate the apparent “risk” of recidivism in black communities. Northpointe states that having more data, including from African American defendants, makes the algorithm more effective at predicting their recidivism rate. However, ProPublica pointed out an issue with the model’s false positive rate in that non-reoffending African Americans were twice as likely to be falsely predicted to re-offend than white defendants.
+
+### 3. Recognizing and mitigate bias in ourselves and in the data we use
+
+A third ethical concern relates to bias mitigation. The data science problem at hand here is how Northpointe focuses on one aspect of their algorithm while ignoring biased results. They focus on predictive parity, which means that individuals with the same COMPAS score have similar chances of re-offending. However, they were unable to address the bias of the large racial disparities in false-positive and false-negative rates. The results and their subsequent counter-study show their algorithm required deliberate value choices, not purely technical fixes. Data scientists should mitigate risk and be transparent about trade-offs. 
+
+### 4. Respect and invite fair criticism while promoting the identification and open discussion of errors, risks, and unintended consequences of our work
+
+Finally, the data science value of being open to fair criticism is unmet by COMPAS’ model. Because the algorithm’s design and associated weights are proprietary, defendants cannot challenge their scores, nor can the community have open dialogue about the inputs associated with the scores. Since the results of COMPAS’ model show a racial bias in false positives, open debate of the product is not unwarranted regardless of potential financial effects on Northpointe. This lack of transparency removes accountability from civil decision-making, ending debate and closing off criticism. Ethical data science invites fair criticism and open discussion of errors and risks.
+
+### Conclusion
+
+The COMPAS debate matters as it shows how the decision making of  data scientists affects real people’s lives. Northpointe and civil servants who do not want accountability benefit by the use of the Court’s implementation of COMPAS. Meanwhile, marginalized and overpoliced communities are harmed in the process by a higher rate of false positives affecting court decisions. Ethical violations were conducted in the interest of profit by a private company and control by law enforcement agencies.
+
+### References
+
+1. Angwin, J., Larson, J., Mattu, S., & Kirchner, L. (2016). Machine Bias. ProPublica. [https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing)
+2. Dieterich, W., Mendoza, C., & Brennan, T. (2016). COMPAS Risk Scales: Demonstrating Accuracy, Equity, and Predictive Parity. Northpointe (Equivant).
+3. Densley, J. A. (2021). Over-policed and under-protected: Police violence as a symptom and cause of urban violence in America’s Black communities. In Public Health, Mental Health, and Mass Atrocity Prevention. Routledge.

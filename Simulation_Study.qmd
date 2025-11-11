@@ -106,6 +106,7 @@ perm_stat <- function(x){
 ```
 We then repeated this process many times to create a null hypothesis sampling distribution. So I used `map_dbl()`. We ran the function 2,000 times and stored each simulated difference in a numeric vector. With this we were able to build a null distribution to compare against the observed difference.
 ```{r}
+set.seed(47) # setting the seed
 perm_stat_list <- map_dbl(1:2000, perm_stat)
 perm_df <- data.frame(perms = perm_stat_list)
 ```

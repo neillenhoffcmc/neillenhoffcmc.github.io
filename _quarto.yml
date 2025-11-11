@@ -22,7 +22,8 @@ website:
             href: Text_Analysis.qmd
           - text: Simulation Study
             href: Simulation_Study.qmd
-         
+          - text: Ethics- Data and Power
+            href: Ethics- Data and Power.qmd
 
       
             
