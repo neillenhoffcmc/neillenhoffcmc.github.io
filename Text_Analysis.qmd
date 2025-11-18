@@ -2,9 +2,9 @@
 title: "Text Analysis"
 editor: visual
 ---
-I got this data from the Kaggle website https://www.kaggle.com/datasets/fabriziocominetti/the-office-lines
-The direct link is not longer active, https://www.officequotes.net/ 
-However, the cited source to the TV show is The Office. Created by Greg Daniels, performances by Steve Carell, Rainn Wilson, and John Krasinski, NBC, 2005–2013.
+
+I got this data from the Kaggle website https://www.kaggle.com/datasets/fabriziocominetti/the-office-lines The direct link is not longer active, https://www.officequotes.net/ However, the cited source to the TV show is The Office. Created by Greg Daniels, performances by Steve Carell, Rainn Wilson, and John Krasinski, NBC, 2005–2013.
+
 ```{r, include=FALSE}
 library(tidyverse)
 ```
@@ -12,8 +12,6 @@ library(tidyverse)
 ```{r}
 office <- read.csv("the-office_lines.csv")
 ```
-
-
 
 ```{r}
 
@@ -40,7 +38,6 @@ counts <- str_count(allline$Line2, pat)
 total_not_jesus_christ <- sum(counts, na.rm = TRUE)
 total_not_jesus_christ
 ```
-
 
 ```{r}
 library(ggplot2)
