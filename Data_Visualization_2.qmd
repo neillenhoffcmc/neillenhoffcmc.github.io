@@ -1,27 +1,38 @@
 ---
-title: "Data Visualization 2"
-editor: visual
+title: "Movie Couples"
+subtitle: "Understanding Age Gaps Between Famous Movie Couples"
+date: "September 24, 2025"
+author: "Neil Lenhoff"
+format: html
+toc: true # Table of contents
+execute: 
+  warning: false
+  message: false
 ---
+![](romunsplash.jpg)
 
-```{r, include=FALSE}
+Photo by [Mayur Gala]("https://unsplash.com/@mayurgala?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText").
+
+The data that is being used was derived from the [TidyTuesday repository](https://github.com/rfordatascience/tidytuesday/tree/main/data/2023/2023-02-14). The data set for this week comes from [Hollywood Age Gap](https://hollywoodagegap.com/) and [Data Is Plural](https://www.data-is-plural.com/archive/2018-02-07-edition/). 
+
+### Data Manipulation
+These are the libraries we will be using:
+```{r}
 library(ggplot2)
 library(dplyr)
 ```
-
-"age_gaps"\
-The age gap between the famous movie couples.\
-Jon Harmon\
-February 14, 2023
-
-<https://github.com/rfordatascience/tidytuesday/tree/main/data/2023/2023-02-14>
-
-The data comes from <https://hollywoodagegap.com/> , <https://www.data-is-plural.com/archive/2018-02-07-edition/>\
-html\
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+The data was downloaded from the TidyTuesday repository and is referenced here as `age_gaps.csv`. 
+```{r}
 df <- read.csv("age_gaps.csv")
-ggplot(df, aes(x = age_difference)) +
-  geom_histogram(binwidth = 5, color = "white") +
-  labs(title = "Varying Age Differences in Famous Movie Couples",
-       x = "Age Difference (years)", y = "Couples")
 ```
+### Data Visualization
+
+We will make a histogram of the age differences of various movie couples.
+```{r}
+ggplot(df, aes(x = age_difference)) +
+  geom_histogram(binwidth = 5, color = "black", fill="pink") +
+  labs(title = "Varying Age Differences in Famous Movie Couples",
+       x = "Age Difference (years)", y = "Couples")+
+  theme_minimal()
+```
+

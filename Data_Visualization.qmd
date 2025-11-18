@@ -33,7 +33,7 @@ head(yearly)
 
 ### Data Visualization
 
-We will make a scatterplot of the births per year over time.
+We will make a scatter plot of the births per year over time.
 ```{r}
 ggplot(yearly, aes(x = year, y = total_births)) +
   geom_line(color = "darkred", size = 1.5) +

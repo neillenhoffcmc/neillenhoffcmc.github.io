@@ -2,9 +2,9 @@
   {
     "objectID": "Data_Visualization_2.html",
     "href": "Data_Visualization_2.html",
-    "title": "Data Visualization 2",
+    "title": "Movie Couples",
     "section": "",
-    "text": "“age_gaps”\nThe age gap between the famous movie couples.\nJon Harmon\nFebruary 14, 2023\nhttps://github.com/rfordatascience/tidytuesday/tree/main/data/2023/2023-02-14\nThe data comes from https://hollywoodagegap.com/ , https://www.data-is-plural.com/archive/2018-02-07-edition/\nhtml"
+    "text": "Photo by Mayur Gala.\nThe data that is being used was derived from the TidyTuesday repository. The data set for this week comes from Hollywood Age Gap and Data Is Plural.\n\nData Manipulation\nThese are the libraries we will be using:\n\nlibrary(ggplot2)\nlibrary(dplyr)\n\nThe data was downloaded from the TidyTuesday repository and is referenced here as age_gaps.csv.\n\ndf &lt;- read.csv(\"age_gaps.csv\")\n\n\n\nData Visualization\nWe will make a histogram of the age differences of various movie couples.\n\nggplot(df, aes(x = age_difference)) +\n  geom_histogram(binwidth = 5, color = \"black\", fill=\"pink\") +\n  labs(title = \"Varying Age Differences in Famous Movie Couples\",\n       x = \"Age Difference (years)\", y = \"Couples\")+\n  theme_minimal()"
   },
   {
     "objectID": "index.html",
@@ -18,7 +18,7 @@
     "href": "Data_Visualization.html",
     "title": "Births in Canada",
     "section": "",
-    "text": "Photo by Hermes Rivera.\nThe data that is being used was derived from the TidyTuesday repository. The data set for this week comes from Statistics Canda.\n\nData Manipulation\nThese are the libraries we will be using:\n\nlibrary(ggplot2)\nlibrary(dplyr)\n\nThe data was downloaded from the TidyTuesday repository and is referenced here as canada_births_1991_2022.csv. After importing, we summarized the data by total births per year.\n\ndf &lt;- read.csv(\"canada_births_1991_2022.csv\")\n\nyearly &lt;- df |&gt;\n  group_by(year) |&gt;\n  summarize(total_births = sum(births))\n\nhead(yearly)\n\n# A tibble: 6 × 2\n   year total_births\n  &lt;int&gt;        &lt;int&gt;\n1  1991       403816\n2  1992       399109\n3  1993       389037\n4  1994       386243\n5  1995       378685\n6  1996       366833\n\n\n\n\nData Visualization\nWe will make a scatterplot of the births per year over time.\n\nggplot(yearly, aes(x = year, y = total_births)) +\n  geom_line(color = \"darkred\", size = 1.5) +\n  geom_point(shape = 21, size = 3, fill = \"white\", color = \"darkred\") +\n  labs(title = \"Births in Canada from 1991 to 2022\",\n       x = \"Year\",\n       y = \"# of Births\") +\n  theme_minimal()"
+    "text": "Photo by Hermes Rivera.\nThe data that is being used was derived from the TidyTuesday repository. The data set for this week comes from Statistics Canda.\n\nData Manipulation\nThese are the libraries we will be using:\n\nlibrary(ggplot2)\nlibrary(dplyr)\n\nThe data was downloaded from the TidyTuesday repository and is referenced here as canada_births_1991_2022.csv. After importing, we summarized the data by total births per year.\n\ndf &lt;- read.csv(\"canada_births_1991_2022.csv\")\n\nyearly &lt;- df |&gt;\n  group_by(year) |&gt;\n  summarize(total_births = sum(births))\n\nhead(yearly)\n\n# A tibble: 6 × 2\n   year total_births\n  &lt;int&gt;        &lt;int&gt;\n1  1991       403816\n2  1992       399109\n3  1993       389037\n4  1994       386243\n5  1995       378685\n6  1996       366833\n\n\n\n\nData Visualization\nWe will make a scatter plot of the births per year over time.\n\nggplot(yearly, aes(x = year, y = total_births)) +\n  geom_line(color = \"darkred\", size = 1.5) +\n  geom_point(shape = 21, size = 3, fill = \"white\", color = \"darkred\") +\n  labs(title = \"Births in Canada from 1991 to 2022\",\n       x = \"Year\",\n       y = \"# of Births\") +\n  theme_minimal()"
   },
   {
     "objectID": "about.html",
