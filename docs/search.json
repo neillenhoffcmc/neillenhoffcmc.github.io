@@ -16,9 +16,9 @@
   {
     "objectID": "Data_Visualization.html",
     "href": "Data_Visualization.html",
-    "title": "Neil Lenhoff",
+    "title": "Births in Canada",
     "section": "",
-    "text": "“canada_births_1991_2022”\nBirths in Canada from 1991 to 2022, monthly and annually\nJon Harmon and Tracy Teal\nJanuary 9, 2024\nhttps://github.com/rfordatascience/tidytuesday/blob/main/data/2024/2024-01-09/canada_births_1991_2022.csv\nThe dataset this comes from https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1310041501&pickMembers%5B0%5D=3.1&cubeTimeFrame.startYear=1991&cubeTimeFrame.endYear=2022&referencePeriods=19910101%2C20220101 , https://api.nhle.com/stats/rest/en/team , https://api-web.nhle.com/v1/\nhtml"
+    "text": "Photo by Hermes Rivera.\nThe data that is being used was derived from the TidyTuesday repository. The data set for this week comes from Statistics Canda.\n\nData Manipulation\nThese are the libraries we will be using:\n\nlibrary(ggplot2)\nlibrary(dplyr)\n\nThe data was downloaded from the TidyTuesday repository and is referenced here as canada_births_1991_2022.csv. After importing, we summarized the data by total births per year.\n\ndf &lt;- read.csv(\"canada_births_1991_2022.csv\")\n\nyearly &lt;- df |&gt;\n  group_by(year) |&gt;\n  summarize(total_births = sum(births))\n\nhead(yearly)\n\n# A tibble: 6 × 2\n   year total_births\n  &lt;int&gt;        &lt;int&gt;\n1  1991       403816\n2  1992       399109\n3  1993       389037\n4  1994       386243\n5  1995       378685\n6  1996       366833\n\n\n\n\nData Visualization\nWe will make a scatterplot of the births per year over time.\n\nggplot(yearly, aes(x = year, y = total_births)) +\n  geom_line(color = \"darkred\", size = 1.5) +\n  geom_point(shape = 21, size = 3, fill = \"white\", color = \"darkred\") +\n  labs(title = \"Births in Canada from 1991 to 2022\",\n       x = \"Year\",\n       y = \"# of Births\") +\n  theme_minimal()"
   },
   {
     "objectID": "about.html",

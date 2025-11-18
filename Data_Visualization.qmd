@@ -1,26 +1,45 @@
 ---
-title: ""
-format: "html"
+title: "Births in Canada"
+subtitle: "Understanding Birth Rate From 1991 to 2022"
+date: "September 24, 2025"
+author: "Neil Lenhoff"
+format: html
+toc: true # Table of contents
+execute: 
+  warning: false
+  message: false
 ---
-"canada_births_1991_2022" \
-Births in Canada from 1991 to 2022, monthly and annually \
-Jon Harmon and Tracy Teal \
-January 9, 2024 \
-https://github.com/rfordatascience/tidytuesday/blob/main/data/2024/2024-01-09/canada_births_1991_2022.csv \
-The dataset this comes from https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1310041501&pickMembers%5B0%5D=3.1&cubeTimeFrame.startYear=1991&cubeTimeFrame.endYear=2022&referencePeriods=19910101%2C20220101 , https://api.nhle.com/stats/rest/en/team , https://api-web.nhle.com/v1/ \
-html
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+![](canada.jpg)
+Photo by [Hermes Rivera]("https://unsplash.com/@hermez777?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"). 
+
+The data that is being used was derived from the [TidyTuesday repository](https://github.com/rfordatascience/tidytuesday/tree/main/data/2024/2024-01-09). The data set for this week comes from [Statistics Canda](https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1310041501&pickMembers%5B0%5D=3.1&cubeTimeFrame.startYear=1991&cubeTimeFrame.endYear=2022&referencePeriods=19910101%2C20220101). 
+
+### Data Manipulation
+These are the libraries we will be using:
+```{r}
 library(ggplot2)
 library(dplyr)
+```
+The data was downloaded from the TidyTuesday repository and is referenced here as `canada_births_1991_2022.csv`. After importing, we summarized the data by total births per year. 
+```{r}
 df <- read.csv("canada_births_1991_2022.csv")
+
 yearly <- df |>
   group_by(year) |>
   summarize(total_births = sum(births))
 
+head(yearly)
+```
+
+### Data Visualization
+
+We will make a scatterplot of the births per year over time.
+```{r}
 ggplot(yearly, aes(x = year, y = total_births)) +
-  geom_line(color = "blue", size = 1) +
-  geom_point(color = "red") +
+  geom_line(color = "darkred", size = 1.5) +
+  geom_point(shape = 21, size = 3, fill = "white", color = "darkred") +
   labs(title = "Births in Canada from 1991 to 2022",
        x = "Year",
-       y = "# of Births")
+       y = "# of Births") +
+  theme_minimal()
 ```
