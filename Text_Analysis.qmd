@@ -1,25 +1,40 @@
 ---
-title: "Text Analysis"
-editor: visual
+title: "The Office Text Analysis"
+subtitle: 'Understanding R Through Comedic Excercise'
+date: "November 10, 2025"
+author: "Neil Lenhoff"
+format: html
+toc: true # Table of contents
+execute: 
+  warning: false
+  message: false
+  error: false
+  echo: false
+  eval: true
 ---
 
-I got this data from the Kaggle website https://www.kaggle.com/datasets/fabriziocominetti/the-office-lines The direct link is not longer active, https://www.officequotes.net/ However, the cited source to the TV show is The Office. Created by Greg Daniels, performances by Steve Carell, Rainn Wilson, and John Krasinski, NBC, 2005–2013.
+I got this data from [Kaggle](https://www.kaggle.com/datasets/fabriziocominetti/the-office-lines). The [direct link](https://www.officequotes.net/) is not longer active. However, the cited source to the TV show is The Office. Created by Greg Daniels, performances by Steve Carell, Rainn Wilson, and John Krasinski, NBC, 2005–2013.
 
-```{r, include=FALSE}
+### Libraries
+The following are the libraries that were used in this excercise.
+```{r,}
 library(tidyverse)
+library(stringr)
+library(ggplot2)
 ```
 
+### Import Data
+We imported the following data from [Kaggle](https://www.kaggle.com/datasets/fabriziocominetti/the-office-lines).
 ```{r}
 office <- read.csv("the-office_lines.csv")
 ```
 
 ```{r}
 
-allline<-office %>% 
-  mutate(Line2 = str_split(Line, " ")) %>% 
-  unnest_longer(Line2) %>%
+allline<-office |>
+  mutate(Line2 = str_split(Line, " ")) |> 
+  unnest_longer(Line2) |>
   mutate(Line2 = str_to_lower(Line2))
-library(stringr)
 pat <- regex("\\bjesus\\b\\s+\\bchrist\\b", ignore_case = TRUE)
 total <- sum(str_count(office$Line, pat), na.rm = TRUE)
 total
@@ -27,11 +42,10 @@ total
 ```
 
 ```{r}
-allline<-office %>% 
-  mutate(Line2 = str_split(Line, " ")) %>% 
-  unnest_longer(Line2) %>%
+allline<-office |>
+  mutate(Line2 = str_split(Line, " ")) |> 
+  unnest_longer(Line2) |>
   mutate(Line2 = str_to_lower(Line2))
-library(stringr)
 allline$Line2 <- as.character(allline$Line2)
 pat <- regex("\\bjesus\\b(?!\\s+christ\\b)", ignore_case = TRUE)
 counts <- str_count(allline$Line2, pat)
@@ -40,8 +54,6 @@ total_not_jesus_christ
 ```
 
 ```{r}
-library(ggplot2)
-
 df <- data.frame(
   group = c("Jesus Christ", "Jesus"),
   value = c(2, 29)
@@ -58,25 +70,28 @@ ggplot(df, aes(x = group, y = value)) +
 This graph illustrates how many times the word "Jesus" was said in "The Office." The insights I gained from my plot is how often "Christ" follows "Jesus." The graph shows the frequency of the collocation. It is suprising how uncommon it occurs.
 
 ```{r}
-plot2<-office %>% mutate(Line2 = str_split(Line, " ")) %>% 
+plot2<-office |>
+  mutate(Line2 = str_split(Line, " ")) |>
   unnest_longer(Line2)
 ```
 
 ```{r}
-plot3 <- plot2 %>% mutate(office = str_count(Line2, regex("\\boffice\\b"))) %>% group_by(Character) %>% 
-  summarise(word = n(), office = sum(office)) %>% filter(office > 0)
+plot3 <- plot2 |> 
+  mutate(office = str_count(Line2, regex("\\boffice\\b"))) |> 
+  group_by(Character) |> 
+  summarize(word = n(), office = sum(office)) |>
+  filter(office > 0)
 head(plot3)
 ```
 
 ```{r}
-library(tidyverse)
 main_chars <- c(
   "Michael", "Dwight", "Jim", "Pam", "Andy", "Ryan", "Stanley",
   "Phyllis", "Angela", "Kevin", "Oscar", "Meredith", "Creed",
   "Toby", "Kelly", "Erin", "Darryl"
 )
-plot2_main <- plot3 %>%
-  filter(Character %in% main_chars) %>%
+plot2_main <- plot3 |>
+  filter(Character %in% main_chars) |>
   mutate(label = paste0(Character, " (", office, ")"))  
 plot2_main %>%
   ggplot(aes(x = "", y = office, fill = label)) +
