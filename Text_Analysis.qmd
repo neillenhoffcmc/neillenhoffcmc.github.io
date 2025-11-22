@@ -1,7 +1,7 @@
 ---
 title: "The Office Text Analysis"
 subtitle: 'Understanding R Through Comedic Excercise'
-date: "November 10, 2025"
+date: "October 8, 2025"
 author: "Neil Lenhoff"
 format: html
 toc: true # Table of contents
