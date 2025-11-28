@@ -24,6 +24,9 @@ website:
             href: Simulation_Study.qmd
           - text: Ethics- Data and Power
             href: Ethics- Data and Power.qmd
+          - text: SQL Project
+            href: SQL_Project.qmd
+
 
       
             
