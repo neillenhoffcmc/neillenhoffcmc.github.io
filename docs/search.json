@@ -95,14 +95,14 @@
     "href": "SQL_Project.html",
     "title": "SQL Policing Policy Project",
     "section": "",
-    "text": "For this project, I use data from the Stanford Open Policing Project (2025) in a similar way as Pierson et al. (2020). I am able to look at police activity on Christmas Eve and Christmas Day in three California cities: Oakland, San Diego, and San Francisco. From the data, I am able to get information on traffic and pedestrian stops that occur on December 24th and 25th. I am also able to review how often these stops result in arrest, as well as the arrests breakdown by sex across the three cities. Per the assignment, all data wrangling is performed with SQL. R is used only for visualization or exploration of the resulting tables. The goal is to see how Christmas looks over time in terms of police enforcement patterns."
+    "text": "Photo by Wesley Tingey on Unsplash"
   },
   {
     "objectID": "SQL_Project.html#overview",
     "href": "SQL_Project.html#overview",
     "title": "SQL Policing Policy Project",
-    "section": "",
-    "text": "For this project, I use data from the Stanford Open Policing Project (2025) in a similar way as Pierson et al. (2020). I am able to look at police activity on Christmas Eve and Christmas Day in three California cities: Oakland, San Diego, and San Francisco. From the data, I am able to get information on traffic and pedestrian stops that occur on December 24th and 25th. I am also able to review how often these stops result in arrest, as well as the arrests breakdown by sex across the three cities. Per the assignment, all data wrangling is performed with SQL. R is used only for visualization or exploration of the resulting tables. The goal is to see how Christmas looks over time in terms of police enforcement patterns."
+    "section": "Overview",
+    "text": "Overview\nFor this project, I use data from the Stanford Open Policing Project (2025) in a similar way as Pierson et al. (2020). I am able to look at police activity on Christmas Eve and Christmas Day in three California cities: Oakland, San Diego, and San Francisco. From the data, I am able to get information on traffic and pedestrian stops that occur on December 24th and 25th. I am also able to review how often these stops result in arrest, as well as the arrests breakdown by sex across the three cities. Per the assignment, all data wrangling is performed with SQL. R is used only for visualization or exploration of the resulting tables. The goal is to see how Christmas looks over time in terms of police enforcement patterns."
   },
   {
     "objectID": "SQL_Project.html#libraries",
