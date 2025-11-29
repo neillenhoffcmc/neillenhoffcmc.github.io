@@ -24,7 +24,7 @@ For this project, I use data from the @StanfordOpenPolicingProject in a similar 
 ## Libraries
 
 ```{r}
-library(tidyverse)
+library(ggplot2)
 library(lubridate)
 library(RMariaDB)
 ```
@@ -173,6 +173,11 @@ WHERE DATE_FORMAT(date, '%m-%d') IN ('12-24', '12-25') AND
       arrest_made IS NOT NULL
 GROUP BY subject_sex, arrest_made;
 
+```
+
+We disconnect the connection with the police tacking SQL database.
+```{r}
+DBI::dbDisconnect(con_traffic, shutdown = TRUE)
 ```
 
 This code generates a plot that visualizes Christmas police encounters by sex in three cities.
