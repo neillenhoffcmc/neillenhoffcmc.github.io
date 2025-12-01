@@ -13,6 +13,8 @@ execute:
   eval: true
 ---
 
+### Introduction
+
 I got this data from [Kaggle](https://www.kaggle.com/datasets/fabriziocominetti/the-office-lines). The [direct link](https://www.officequotes.net/) is not longer active. However, the cited source to the TV show is The Office. Created by Greg Daniels, performances by Steve Carell, Rainn Wilson, and John Krasinski, NBC, 2005–2013.
 
 ### Libraries
@@ -29,15 +31,15 @@ We imported the following data from [Kaggle](https://www.kaggle.com/datasets/fab
 office <- read.csv("the-office_lines.csv")
 ```
 
-```{r}
+### Analysis One
 
-allline<-office |>
-  mutate(Line2 = str_split(Line, " ")) |> 
-  unnest_longer(Line2) |>
-  mutate(Line2 = str_to_lower(Line2))
-pat <- regex("\\bjesus\\b\\s+\\bchrist\\b", ignore_case = TRUE)
-total <- sum(str_count(office$Line, pat), na.rm = TRUE)
-total
+```{r}
+allline <- office |>
+  mutate(line_ci = str_to_lower(Line), 
+         j_c = str_detect(line_ci, "\\bjesus\\b\\s+\\bchrist\\b"))
+allline |> 
+  summarize(sum(j_c)) |> 
+  pull()
 
 ```
 
@@ -62,13 +64,15 @@ df <- data.frame(
 ggplot(df, aes(x = group, y = value)) +
   geom_point(shape = 3, size = 6, stroke = 1.5, color = "gold") +
   labs(title = "How Many Times Jesus Was Said In The Office", 
-       x = "Phrase Said", y = "Number of Times Said") 
+       x = "Phrase Said", y = "Number of Times Said") +
+  theme_minimal()
 
 
 ```
 
 This graph illustrates how many times the word "Jesus" was said in "The Office." The insights I gained from my plot is how often "Christ" follows "Jesus." The graph shows the frequency of the collocation. It is suprising how uncommon it occurs.
 
+### Analysis Two
 ```{r}
 plot2<-office |>
   mutate(Line2 = str_split(Line, " ")) |>
@@ -93,7 +97,7 @@ main_chars <- c(
 plot2_main <- plot3 |>
   filter(Character %in% main_chars) |>
   mutate(label = paste0(Character, " (", office, ")"))  
-plot2_main %>%
+plot2_main |> 
   ggplot(aes(x = "", y = office, fill = label)) +
   geom_bar(stat = "identity", width = 1, color = "white") +
   coord_polar("y", start = 0) +
