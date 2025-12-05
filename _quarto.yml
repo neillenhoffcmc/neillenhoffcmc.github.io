@@ -18,11 +18,11 @@ website:
             href: Data_Visualization_2.qmd
           - text: The Office Text Analysis
             href: Text_Analysis.qmd
-          - text: Simulation Study
+          - text: Penguin Simulation Study
             href: Simulation_Study.qmd
           - text: Ethics- Data and Power
             href: Ethics- Data and Power.qmd
-          - text: SQL Project
+          - text: SQL Policing Policy Project
             href: SQL_Project.qmd
           - text: Penguins Presentation
             href: Pittsburgh_Penguin_Presentation.qmd
