@@ -79,9 +79,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5b8f9b2f3cffee265242a5d44fbb1e00.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-5100b8561cd7f6cd8c35657ed6fe7ee7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-5b8f9b2f3cffee265242a5d44fbb1e00.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-26827f95213357c060b998e0666f8ebe.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-de0ed3b9a49d5daa615839eefb10c6a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-26827f95213357c060b998e0666f8ebe.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -112,6 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="typography.css">
 </head>
 
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -301,11 +302,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
-<span class="menu-text">About</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./resources.html"> 
-<span class="menu-text">Resources</span></a>
+<span class="menu-text">Resume</span></a>
   </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-visualization" role="link" data-bs-toggle="dropdown" aria-expanded="false">
@@ -314,15 +311,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="dropdown-menu" aria-labelledby="nav-menu-data-visualization">    
         <li>
     <a class="dropdown-item" href="./Data_Visualization.html">
- <span class="dropdown-text">Visualization 1</span></a>
+ <span class="dropdown-text">Birth in Canada Visualization</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./Data_Visualization_2.html">
- <span class="dropdown-text">Visualization 2</span></a>
+ <span class="dropdown-text">Movie Couples Visualization</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./Text_Analysis.html">
- <span class="dropdown-text">Text Analysis</span></a>
+ <span class="dropdown-text">The Office Text Analysis</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./Simulation_Study.html">
@@ -335,6 +332,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="./SQL_Project.html">
  <span class="dropdown-text">SQL Project</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Pittsburgh_Penguin_Presentation.html">
+ <span class="dropdown-text">Penguins Presentation</span></a>
   </li>  
     </ul>
   </li>
@@ -417,14 +418,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="import-data" class="level3">
 <h3 class="anchored" data-anchor-id="import-data">Import Data</h3>
-<p>We imported the following data from the <a href="https://github.com/rfordatascience/tidytuesday/tree/main/data/2020/2020-03-03">TidyTuesday community repository</a>. Specifically, the data comes from <a href="https://www.hockey-reference.com/">HockeyReference.com</a>.</p>
+<p>We imported the following data from the <a href="https://github.com/rfordatascience/tidytuesday/tree/main/data/2020/2020-03-03">TidyTuesday community repository</a> “Hockey Goals, March 3, 2020”. Specifically, the data comes from <a href="https://www.hockey-reference.com/">HockeyReference.com</a>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>game_goals <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2020/2020-03-03/game_goals.csv'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="data-manipulaton" class="level3">
 <h3 class="anchored" data-anchor-id="data-manipulaton">Data Manipulaton</h3>
-<p>Here we changed the unit of observation in the <code>game_goals</code> from player per game in the NHL to statistics per game for the Pittsburgh Penguins.</p>
+<p>Here we changed the unit of observation in the <code>game_goals</code> from player per game in the NHL to statistics per game for the Pittsburgh Penguins. This will be the data we will be focusing on in this analysis.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pit <span class="ot">&lt;-</span> game_goals <span class="sc">|&gt;</span> </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(team <span class="sc">==</span> <span class="st">"PIT"</span>) <span class="sc">|&gt;</span> <span class="co"># filtering for Penguins</span></span>
@@ -456,7 +457,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>We included this graph below to illustrate the proportion of home to away games for the Pittsburgh Penguins in a given season. The reason we felt the need to perform this task is because we wanted to make sure that there was not a disproportionate percent of home or away games over time that would affect their win totals and/or percentages.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pit <span class="sc">|&gt;</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(season, location) <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(season, location) <span class="sc">|&gt;</span> <span class="co"># summarizing for graphing purposes</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">totals =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> season, <span class="at">y=</span> totals, <span class="at">fill =</span> location)) <span class="sc">+</span></span>
@@ -470,7 +471,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Simulation_Study_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Simulation_Study_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" alt="This plot shows the proportion of home to away games played by the Pittsburgh Penguins spanning over three decades. There is a relatively uniform distribution of home and away games." width="672"></p>
 </figure>
 </div>
 </div>
@@ -495,7 +496,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Simulation_Study_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Simulation_Study_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" alt="This plot shows the proportion of wins per season by the Pittsburgh Penguins based on home versus away. The Penguins had on average a higher proportion of wins at home(.6) in comparison to away (.45)." width="672"></p>
 </figure>
 </div>
 </div>
@@ -555,7 +556,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Simulation_Study_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Simulation_Study_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" alt="The plot shows that the most simulated win-proportion differences is near zero. These values are an indication that there is no home-ice advantage. The dashed gold line, the sample statistic, is far to the right of the null distribution. Because such the extreme value is unlikely to occur by random chance, it can be inferred that playing at home increases the proportion of winning. This graph implies a true home-ice advantage." width="672"></p>
 </figure>
 </div>
 </div>

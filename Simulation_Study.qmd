@@ -23,13 +23,13 @@ library(tidyverse)
 library(lubridate)
 ```
 ### Import Data
-We imported the following data from the [TidyTuesday community repository](https://github.com/rfordatascience/tidytuesday/tree/main/data/2020/2020-03-03). Specifically, the data comes from [HockeyReference.com](https://www.hockey-reference.com/).
+We imported the following data from the [TidyTuesday community repository](https://github.com/rfordatascience/tidytuesday/tree/main/data/2020/2020-03-03) "Hockey Goals, March 3, 2020". Specifically, the data comes from [HockeyReference.com](https://www.hockey-reference.com/).
 ```{r}
 game_goals <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2020/2020-03-03/game_goals.csv')
 
 ```
 ### Data Manipulaton
-Here we changed the unit of observation in the `game_goals` from player per game in the NHL to statistics per game for the Pittsburgh Penguins.
+Here we changed the unit of observation in the `game_goals` from player per game in the NHL to statistics per game for the Pittsburgh Penguins. This will be the data we will be focusing on in this analysis. 
 ```{r}
 pit <- game_goals |> 
   filter(team == "PIT") |> # filtering for Penguins
@@ -42,9 +42,9 @@ pit
 ### Preliminary Data Visualizations
 
 We included this graph below to illustrate the proportion of home to away games for the Pittsburgh Penguins in a given season. The reason we felt the need to perform this task is because we wanted to make sure that there was not a disproportionate percent of home or away games over time that would affect their win totals and/or percentages. 
-```{r}
+```{r, fig.alt= "This plot shows the proportion of home to away games played by the Pittsburgh Penguins spanning over three decades. There is a relatively uniform distribution of home and away games." }
 pit |>
-  group_by(season, location) |>
+  group_by(season, location) |> # summarizing for graphing purposes
   summarize(totals = n()) |>
   
   ggplot(aes(x = season, y= totals, fill = location)) +
@@ -59,7 +59,7 @@ pit |>
 
 ```
 We looked at the Pittsburgh Penguins proportion of wins per season based on whether they played at home or away in the graph below. From data reviewed from 1984-2020, on average, the Penguins had a higher proportion of wins at home versus away.
-```{r}
+```{r, fig.alt= "This plot shows the proportion of wins per season by the Pittsburgh Penguins based on home versus away. The Penguins had on average a higher proportion of wins at home(.6) in comparison to away (.45)."}
 pit |>
   group_by(season, location) |>
   summarize(prop_wins = mean(outcome == "W")) |>
@@ -113,7 +113,7 @@ perm_df <- data.frame(perms = perm_stat_list)
 
 ### H₀ Sampling Distribution 
 
-```{r}
+```{r, fig.alt= "The plot shows that the most simulated win-proportion differences is near zero. These values are an indication that there is no home-ice advantage. The dashed gold line, the sample statistic, is far to the right of the null distribution. Because such the extreme value is unlikely to occur by random chance, it can be inferred that playing at home increases the proportion of winning. This graph implies a true home-ice advantage."}
 perm_df |>
   ggplot(aes(x = perms)) +
   geom_histogram(fill = "black") +

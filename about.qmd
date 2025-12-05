@@ -1,9 +1,121 @@
 ---
-title: "About"
+title: "Neil Lenhoff"
+format:
+  pdf:
+    toc: false
+    fontsize: 10pt
+    geometry: margin=1in
+  html:
+    theme: 
+      light: lux
+      dark: cyborg
+toc: false
+number-sections: false
 ---
 
-About this site
+## Contact
+Las Vegas, NV · Tucson, AZ · Los Angeles, CA · New York, NY   
+Email: [neil@flashbiometrics.com](neil@flashbiometrics.com)  
+LinkedIn: [linkedin.com/in/neil-lenhoff](linkedin.com/in/neil-lenhoff)
 
-```{r}
-1 + 1
-```
+---
+
+## Summary
+
+Entrepreneur, pilot, and technical leader with experience across aerospace, software, government contracting, industrial engineering, and real estate. Co-Founder of Flash Biometrics (1M+ users in six months). Demonstrated strengths in applied mathematics, systems engineering, and aviation management. Currently completing a BA in Economics at Claremont McKenna College with plans to pursue a BS+MS in Mechanical Engineering.
+
+---
+
+## Education
+
+**Claremont McKenna College (CMC)** — B.A. in Economics  
+Jan 2020 — May 2026  
+- GPA: 3.74  
+- 3+2 Engineering/Economics Program  
+- Coursework includes: Advanced Laboratory in Physics, Linear Algebra, Modern Computational Physics, Hazardous Waste & Toxic Substances Policy  
+
+---
+
+## Experience
+
+**Co-Founder — Flash Biometrics**   
+Feb 2025 — Present | Las Vegas, NV  
+- Built a lightning-fast facial verification platform scaling to **1,000,000+ users** within six months across mobile and web.  
+- Responsible for engineering direction, product strategy, and deployment.  
+
+**Vice President of Business Development — Graffiti Protective Coatings, Inc.**  
+May 2020 — Present | Phoenix, AZ  
+- Lead growth initiatives at one of the nation’s largest graffiti abatement and industrial maintenance firms.  
+- Expertise in industrial coatings, electrical & instrumentation engineering, and municipal contracting.  
+
+**Vice President of Business Strategy — American Graffiti Inc.** 
+Oct 2020 — Present | Las Vegas, NV  
+- Manage strategy, public-sector contracting, and technical operations for surface protection and abatement.  
+
+**Co-Owner — Neilluke LLC (Real Estate Investment)**  
+Jan 2021 — Present | Las Vegas, NV  
+- Own & manage a diversified real-estate portfolio of 50+ properties.  
+- Focus on long-term holdings and short-term investment opportunities.
+
+**Owner — Lenhoff Aeronautical Services** 
+Jan 2022 — Present | Tucson, AZ  
+- Operate as a Commercial & Instrument Pilot under 14 CFR §61.133.  
+- Provide aviation services, logistics, and aircraft maintenance oversight.
+
+**Advisor — Zorts Sports**  
+Mar 2020 — Present | Las Vegas, NV  
+- Advised the board of a youth sports platform used by NFL-affiliated organizations.  
+
+**Advisor — APP-ORDER, LLC**  
+Sep 2020 — Present | Las Vegas, NV  
+- Advise municipal software platform serving state and federal government programs.
+
+**Volunteer Pilot — Pilots N Paws**   
+Sep 2023 — Present | Tucson, AZ  
+- Fly rescued animals to shelters/adoption centers nationwide.  
+
+**Horseback Tour Guide — Sunset Ranch Hollywood**  
+Aug 2025 — Present | Los Angeles, CA  
+- Lead guided horseback tours to the Hollywood Sign.
+
+---
+
+## Licenses & Certifications
+
+- **Commercial Pilot (CP)** — FAA (Dec 2021)  
+- **Instrument Pilot (IP)** — FAA (May 2023)  
+- **US Government Contractor** — US Department of War (Apr 2023)  
+- **Roadway Worker Protection (RWP)** — North County Transit (Mar 2023)  
+- **Aerial Lift Specialist** — OSHA (Jul 2021)  
+- **OSHA Outreach Training** — OSHA (Feb 2021)  
+- **Class C Driver’s License** — CA DMV (Sep 2016)
+
+---
+
+## Technical Skills
+
+**Programming & Software:**  
+R, Python, MATLAB, Maple, Mathematica  
+
+**Engineering & Technical Ops:**  
+Electrical & Instrumentation Engineering (EIE), Mechanical/Electrical/Plumbing (MEP), Aircraft Maintenance, Industrial Painting
+
+**Aviation:**  
+Commercial Pilot · Instrument Rated · Fixed-Wing · Rotary-Wing · Aviation Management
+
+---
+
+## Additional Skills
+
+**Languages:**  
+- English — Native  
+- Spanish — Full Professional Proficiency  
+- Italian — Limited Working Proficiency  
+- Hawaiian (‘Ōlelo Hawai‘i) — Elementary Proficiency  
+
+**Coursework Highlights:**  
+- Advanced Lab in Physics (PHYS109L)  
+- Modern Physics with Computational Applications (PHYS035)  
+- Linear Algebra (MATH060)  
+- Hazardous Waste & Toxic Substances Policy (EA094)  
+

@@ -96,7 +96,7 @@ GROUP BY EXTRACT(YEAR FROM date);
 
 This code generates a plot that visualizes Christmas police encounters over time.
 
-```{r}
+```{r, fig.alt= "This plot shows that Oakland, San Francisco, and San Diego have a downward trending number of police encounters on Christmas. Specifically, we do not have that much data for San Diego or Oakland. However, San Diego has the most drastic decrease of the three between 2014 and 2016. San Francisco has the greatest number of years of data out of the three cities. It also has the most consistent downward trend of the three cities."}
 enc_over_time |> 
   ggplot(aes(x = year, y = n, color = city)) +
   geom_point(size = 2.25) +
@@ -181,13 +181,14 @@ DBI::dbDisconnect(con_traffic, shutdown = TRUE)
 ```
 
 This code generates a plot that visualizes Christmas police encounters by sex in three cities.
-```{r}
+```{r, fig.alt= "This plot shows percent breakdown of subject sex differs in Oakland, San Francisco, and San Diego across all available years. Of the police encounters, the proportions of males is highest in Oakland regardless of whether an arrest was made or not. San Diego surprisingly had a significantly larger proportion of women being arrested compare to the other cities. However, this anomaly may be due to the fact that San Diego has only three years of data and is the only city located in Southern California. In that vain, San Francisco's proportions are similar to that of Oakland's. Both cities are in the bay area. In the bay area, it appears that when women are encountered by the police, it is for less serious reasons. This inference can be drawn from the fact that the female proportion that is arrested is smaller than the non-arrested proportion."}
 enc_by_sex |> 
   ggplot(aes(x = arrest_made, y = n, fill = subject_sex)) +
   geom_col(position = "fill") +
   facet_wrap(city~.) +
   labs(
     title = "Subject Gender Ratio In Christmas Police Encounters ",
+    # Clarify what days are Christmas, Eve and Day
     subtitle = "On December 24th and 25th",
     x = "",
     y = "",

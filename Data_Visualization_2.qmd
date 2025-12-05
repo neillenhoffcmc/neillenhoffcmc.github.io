@@ -13,7 +13,11 @@ execute:
 
 Photo by [Mayur Gala]("https://unsplash.com/@mayurgala?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText").
 
-The data that is being used was derived from the [TidyTuesday repository](https://github.com/rfordatascience/tidytuesday/tree/main/data/2023/2023-02-14). The data set for this week comes from [Hollywood Age Gap](https://hollywoodagegap.com/) and [Data Is Plural](https://www.data-is-plural.com/archive/2018-02-07-edition/). 
+### Introduction
+
+The data that is being used was derived from the [TidyTuesday repository](https://github.com/rfordatascience/tidytuesday/tree/main/data/2023/2023-02-14) "Hollywood Age Gaps, 2023-02-14". The data set for this week comes from [Hollywood Age Gap](https://hollywoodagegap.com/) and [Data Is Plural](https://www.data-is-plural.com/archive/2018-02-07-edition/). 
+
+The goal of this project is to show the age difference between romantic co-stars in popular films. We have data that is derived from over 600 films. We are able to visualize the data through a histogram to show the difference in age between the two actors across all the films.
 
 ### Data Manipulation
 These are the libraries we will be using:
@@ -24,15 +28,20 @@ library(dplyr)
 The data was downloaded from the TidyTuesday repository and is referenced here as `age_gaps.csv`. 
 ```{r}
 df <- read.csv("age_gaps.csv")
+
+# Displaying the first six rows of variables of interest
+df |> 
+  select(movie_name, age_difference) |> 
+  head()
 ```
 ### Data Visualization
 
 We will make a histogram of the age differences of various movie couples.
-```{r}
+```{r, fig.alt="This plot describes the age difference between romantic co-stars across 600+ films. Most co-stars had a age difference between 0 and 20 years. The mode is height five years. The graph is screwed to the right or larger amount of years."}
 ggplot(df, aes(x = age_difference)) +
   geom_histogram(binwidth = 5, color = "black", fill="pink") +
   labs(title = "Varying Age Differences in Famous Movie Couples",
        x = "Age Difference (years)", y = "Couples")+
   theme_minimal()
 ```
-
+Some of the insights we can gain from the plot are that most co-stars had a age difference between 0 and 20 years. The mode is height five years. The graph is screwed to the right or larger amount of years.

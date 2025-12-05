@@ -12,7 +12,11 @@ execute:
 ![](canada.jpg)
 Photo by [Hermes Rivera]("https://unsplash.com/@hermez777?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"). 
 
-The data that is being used was derived from the [TidyTuesday repository](https://github.com/rfordatascience/tidytuesday/tree/main/data/2024/2024-01-09). The data set for this week comes from [Statistics Canda](https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1310041501&pickMembers%5B0%5D=3.1&cubeTimeFrame.startYear=1991&cubeTimeFrame.endYear=2022&referencePeriods=19910101%2C20220101). 
+### Introudction
+
+The data that is being used was derived from the January 9th, 2024 [TidyTuesday repository](https://github.com/rfordatascience/tidytuesday/tree/main/data/2024/2024-01-09) "Canadian Hockey Player Birth Months". The data set for this week comes from [Statistics Canda](https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1310041501&pickMembers%5B0%5D=3.1&cubeTimeFrame.startYear=1991&cubeTimeFrame.endYear=2022&referencePeriods=19910101%2C20220101). 
+
+The goal of this project is to show births in Canada over time. We have data that stretches over three decades. We are able to visualize the data through line plot to show the change in birth rate on an annual basis.
 
 ### Data Manipulation
 These are the libraries we will be using:
@@ -22,24 +26,30 @@ library(dplyr)
 ```
 The data was downloaded from the TidyTuesday repository and is referenced here as `canada_births_1991_2022.csv`. After importing, we summarized the data by total births per year. 
 ```{r}
-df <- read.csv("canada_births_1991_2022.csv")
+df <- read.csv("canada_births_1991_2022.csv") 
 
+# Summarize for total births by year
 yearly <- df |>
   group_by(year) |>
   summarize(total_births = sum(births))
 
+# Displaying the first six rows
 head(yearly)
 ```
 
 ### Data Visualization
 
 We will make a scatter plot of the births per year over time.
-```{r}
+```{r, fig.alt="This plot describes the births in Canada from 1990 to the 2020s. There was a steady decrease in births until the early 2000s, after which there was a rapid increase. Birth rate increased right up until 2010, after which it stayed relatively constant with sporadic decreases."}
 ggplot(yearly, aes(x = year, y = total_births)) +
+  
+  # We will have two geoms to create a more effective aesthetic
   geom_line(color = "darkred", size = 1.5) +
   geom_point(shape = 21, size = 3, fill = "white", color = "darkred") +
+
   labs(title = "Births in Canada from 1991 to 2022",
        x = "Year",
        y = "# of Births") +
   theme_minimal()
 ```
+Some of the insights we can gain from the plot are that there was a steady decrease in births until the early 2000s, after which there was a rapid increase. Birth rate increased right up until 2010, after which it stayed relatively constant with sporadic decreases.

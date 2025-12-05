@@ -44,9 +44,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5b8f9b2f3cffee265242a5d44fbb1e00.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-5100b8561cd7f6cd8c35657ed6fe7ee7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-5b8f9b2f3cffee265242a5d44fbb1e00.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-26827f95213357c060b998e0666f8ebe.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-de0ed3b9a49d5daa615839eefb10c6a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-26827f95213357c060b998e0666f8ebe.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -77,6 +77,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="typography.css">
 </head>
 
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -266,11 +267,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
-<span class="menu-text">About</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./resources.html"> 
-<span class="menu-text">Resources</span></a>
+<span class="menu-text">Resume</span></a>
   </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-visualization" role="link" data-bs-toggle="dropdown" aria-expanded="false">
@@ -279,15 +276,15 @@ ul.task-list li input[type="checkbox"] {
     <ul class="dropdown-menu" aria-labelledby="nav-menu-data-visualization">    
         <li>
     <a class="dropdown-item" href="./Data_Visualization.html">
- <span class="dropdown-text">Visualization 1</span></a>
+ <span class="dropdown-text">Birth in Canada Visualization</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./Data_Visualization_2.html">
- <span class="dropdown-text">Visualization 2</span></a>
+ <span class="dropdown-text">Movie Couples Visualization</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./Text_Analysis.html">
- <span class="dropdown-text">Text Analysis</span></a>
+ <span class="dropdown-text">The Office Text Analysis</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./Simulation_Study.html">
@@ -300,6 +297,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="./SQL_Project.html">
  <span class="dropdown-text">SQL Project</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Pittsburgh_Penguin_Presentation.html">
+ <span class="dropdown-text">Penguins Presentation</span></a>
   </li>  
     </ul>
   </li>
@@ -368,27 +369,27 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="introduction" class="level3">
 <h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
-<p>The COMPAS (Correctional Offender Management Profiling for Alternative Sanctions) algorithm was designed to predict a given defendant’s probability to re-offend. It has been used in U.S. states like New York, Wisconsin, California and Florida. A paper published in 2016 by ProPublica led to ethical questions being raised regarding the use of COMPAS. In the paper, ProPublica reported that <u>the algorithm incorrectly categorized African American defendants as “high risk” at nearly twice the rate as their white counterparts</u>. It raised serious ethical concerns about racial profiling in the COMPAS predictive model. In response Northpointe, the company that developed COMPAS, put out their own study (Dieterich et al.&nbsp;2016). In it they countered the claim of racial bias and argued that COMPAS generated similar predictive accuracy across race. Their two papers lead not only to conversation about COMPAS but larger debates regarding fairness and power in data science.</p>
+<p>The COMPAS (Correctional Offender Management Profiling for Alternative Sanctions) algorithm was designed to predict a given defendant’s probability to re-offend. It has been used in U.S. states like New York, Wisconsin, California and Florida. A paper published in 2016 by ProPublica (Angwin et al.) led to ethical questions being raised regarding the use of COMPAS. In the paper, Angwin et al.&nbsp;reported that <u>the algorithm incorrectly categorized black defendants as “high risk” at nearly twice the rate as their white counterparts</u>. It raised serious ethical concerns about racial profiling in the COMPAS predictive model. In response Northpointe, the company that developed COMPAS, put out their own study (Dieterich et al.&nbsp;2016). In it they countered the claim of racial bias and argued that COMPAS generated similar predictive accuracy across race. Their two papers lead not only to conversation about COMPAS but larger debates regarding fairness and power in data science.</p>
 </section>
 <section id="what-is-the-permission-structure-for-using-the-data-was-it-followed" class="level3">
 <h3 class="anchored" data-anchor-id="what-is-the-permission-structure-for-using-the-data-was-it-followed">1. What is the permission structure for using the data? Was it followed?</h3>
-<p>The first ethical dimension to examine in the COMPAS model was the consent structure and how permissions were given in the collection of data. The COMPAS algorithm is trained on defendant data in which these defendants never provided informed consent. The data in question, including criminal records, prior arrests, and most importantly demographics, were not collected voluntarily but rather through the justice system. Furthermore, because the COMPAS algorithm is proprietary, neither the affected defendants nor the public know precisely how the data is used. This clearly undermines the transparency principle of continuous discussion regarding methodology and permissions. This is especially important considering the fact that marginalized groups appear to be profiled by COMPAS’ model through the usage of their demographic data. Since the training model was not voluntarily given nor able to be shared transparently with the public, its use raises serious ethical concerns.</p>
+<p>The first ethical dimension to examine in the COMPAS model was the consent structure and how permissions were given in the collection of criminal data. The COMPAS algorithm is trained on defendant data in which these defendants never provided informed consent. The data in question, that was later used by the COMPAS model, including criminal records, prior arrests, and most importantly demographics, were not collected voluntarily but rather through the justice system. Furthermore, because the COMPAS algorithm is proprietary according to Angwin et al., neither the affected defendants nor the public know precisely how the defendant data is used by the algorithm. This clearly undermines the transparency principle of continuous discussion regarding methodology and permissions. This is especially important considering the fact that marginalized groups appear to be profiled by COMPAS’ model through the usage of their demographic data. Since the training model was not voluntarily given nor able to be shared transparently with the public, its use raises serious ethical concerns.</p>
 </section>
 <section id="who-was-measured-are-those-individuals-representative-of-the-people-to-whom-wed-like-to-generalize-apply-the-algorithm" class="level3">
 <h3 class="anchored" data-anchor-id="who-was-measured-are-those-individuals-representative-of-the-people-to-whom-wed-like-to-generalize-apply-the-algorithm">2. Who was measured? Are those individuals representative of the people to whom we’d like to generalize / apply the algorithm?</h3>
-<p>A second dimension is that this algorithm will be applied to all individuals in the states that use them so it is important that the data used to train the algorithm is representative of the population. Northpointe admits that the COMPAS model was trained on real defendant data. Studies have shown that black communities are over-policed (Densley, 2021). The issue in the data that was used to create the model is that the biased higher arrest rates could in turn inflate the apparent “risk” of recidivism in black communities. Northpointe states that having more data, including from African American defendants, makes the algorithm more effective at predicting their recidivism rate. However, ProPublica pointed out an issue with the model’s false positive rate in that non-reoffending African Americans were twice as likely to be falsely predicted to re-offend than white defendants.</p>
+<p>A second dimension is that this algorithm will be applied to all individuals in the states that use them so it is important that the data used to train the algorithm is representative of the population. Northpointe admits that the COMPAS model was trained on real defendant data. Studies have shown that black communities are over-policed (Densley, 2021). The issue in the defendent data that was used to create the model is that the biased higher arrest rates could in turn inflate the apparent “risk” of recidivism in black communities. Northpointe states that having more defendent data from the government, including from black defendants, makes the algorithm more effective at predicting their recidivism rate. However, Angwin et al.&nbsp;pointed out an issue with the model’s false positive rate in that non-reoffending black were twice as likely to be falsely predicted to re-offend than white defendants.</p>
 </section>
 <section id="recognizing-and-mitigate-bias-in-ourselves-and-in-the-data-we-use" class="level3">
 <h3 class="anchored" data-anchor-id="recognizing-and-mitigate-bias-in-ourselves-and-in-the-data-we-use">3. Recognizing and mitigate bias in ourselves and in the data we use</h3>
-<p>A third ethical concern relates to bias mitigation. The data science problem at hand here is how Northpointe focuses on one aspect of their algorithm while ignoring biased results. They focus on predictive parity, which means that individuals with the same COMPAS score have similar chances of re-offending. However, they were unable to address the bias of the large racial disparities in false-positive and false-negative rates. The results and their subsequent counter-study show their algorithm required deliberate value choices, not purely technical fixes. Data scientists should mitigate risk and be transparent about trade-offs.</p>
+<p>A third ethical concern relates to bias mitigation. The data science problem at hand here is how Northpointe focuses on one aspect of their algorithm while ignoring biased results. According to Dieterich et al.&nbsp;(2016), Northpointe focus on predictive parity, which means that individuals with the same COMPAS score have similar chances of re-offending. However, they were unable to address the bias of the large racial disparities in false-positive and false-negative rates. The results and their subsequent counter-study show their algorithm required deliberate value choices, not purely technical fixes. Data scientists should mitigate risk and be transparent about trade-offs.</p>
 </section>
 <section id="respect-and-invite-fair-criticism-while-promoting-the-identification-and-open-discussion-of-errors-risks-and-unintended-consequences-of-our-work" class="level3">
 <h3 class="anchored" data-anchor-id="respect-and-invite-fair-criticism-while-promoting-the-identification-and-open-discussion-of-errors-risks-and-unintended-consequences-of-our-work">4. Respect and invite fair criticism while promoting the identification and open discussion of errors, risks, and unintended consequences of our work</h3>
-<p>Finally, the data science value of being open to fair criticism is unmet by COMPAS’ model. Because the algorithm’s design and associated weights are proprietary, defendants cannot challenge their scores, nor can the community have open dialogue about the inputs associated with the scores. Since the results of COMPAS’ model show a racial bias in false positives, open debate of the product is not unwarranted regardless of potential financial effects on Northpointe. This lack of transparency removes accountability from civil decision-making, ending debate and closing off criticism. Ethical data science invites fair criticism and open discussion of errors and risks.</p>
+<p>Finally, the data science value of being open to fair criticism is unmet by COMPAS’ model. Because, according to Angwin et al.&nbsp;(2016) the algorithm’s design and associated weights are proprietary, defendants cannot challenge their scores, nor can the community have open dialogue about the inputs associated with the scores. Since the results of COMPAS’ model show a racial bias in false positives, open debate of the product is not unwarranted regardless of potential financial effects on Northpointe. This lack of transparency removes accountability from civil decision-making, ending debate and closing off criticism. Ethical data science invites fair criticism and open discussion of errors and risks.</p>
 </section>
 <section id="conclusion" class="level3">
 <h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
-<p>The COMPAS debate matters as it shows how the decision making of data scientists affects real people’s lives. Northpointe and civil servants who do not want accountability benefit by the use of the Court’s implementation of COMPAS. Meanwhile, marginalized and overpoliced communities are harmed in the process by a higher rate of false positives affecting court decisions. Ethical violations were conducted in the interest of profit by a private company and control by law enforcement agencies.</p>
+<p>The COMPAS debate matters as it shows how the decision making of data scientists affects real people’s lives. Northpointe and civil servants who do not want accountability benefit by the use of the Court’s implementation of COMPAS. Northpointe receives revenue and civil servants distribute repercussions and accountability away from themselves. Meanwhile, marginalized and over policed communities are harmed in the process by a higher rate of false positives affecting court decisions. Ethical violations were conducted in the interest of profit by a private company and control by law enforcement agencies.</p>
 </section>
 <section id="references" class="level3">
 <h3 class="anchored" data-anchor-id="references">References</h3>

@@ -1,0 +1,153 @@
+---
+title: "Pittsburgh Penguin Presentation"
+subtitle: "Permutation Experiment"
+author: "Neil Lenhoff"
+date: "12/5/2025"
+format:
+  revealjs:
+    scrollable: true
+    slide-number: true
+    show-slide-number: all
+    embed-resources: true
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+
+
+
+```{r}
+library(tidyverse)
+library(lubridate)
+
+game_goals <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2020/2020-03-03/game_goals.csv')
+
+
+
+pit <- game_goals |> 
+  filter(team == "PIT") |> # filtering for Penguins
+  
+  group_by(date, location, season, outcome) |> # changing unit of observation
+  summarize(goals_sum = sum(goals)) |>
+  ungroup()
+
+```
+
+
+
+
+```{r}
+sample_statistics <- pit |>
+  group_by(location) |>
+  summarize(prop_of_wins = mean(outcome == "W")) |>
+  pivot_wider(names_from = location,
+              values_from = prop_of_wins) |>
+  mutate(diff = Home - Away) |>
+  pull(diff)
+```
+
+```{r}
+perm_stat <- function(x){
+  pit |>
+    ungroup() |>
+    mutate(location_perm = sample(location)) |>
+    group_by(location_perm) |>
+    summarize(prop_of_wins = mean(outcome == "W")) |>
+    pivot_wider(names_from = location_perm,
+                values_from = prop_of_wins) |>
+    mutate(diff = Home - Away) |>
+    pull(diff)
+  
+}
+```
+
+```{r}
+set.seed(47) # setting the seed
+perm_stat_list <- map_dbl(1:2000, perm_stat)
+perm_df <- data.frame(perms = perm_stat_list)
+```
+
+
+
+
+
+## Introduction
+
+We investigated whether the Pittsburgh Penguins' have a home-ice advantage using a permutation test. Our outcome is game result (W/L), and our explanatory variable is location of the game (Home/Away). We attempted to model the existence of home-ice advantage on NHL games. 
+
+## Purpose
+
+For the purpose of the project, we looked only at the Pittsburgh Penguins. We first summarized the observed home–away difference. Then we simulated the null by shuffling the location labels. Finally we compared the observed statistic to the null distribution to assess significance.
+
+## Data Visualization
+```{r}
+pit
+```
+
+
+## Location of Games Visualization
+
+
+```{r, fig.alt= "This plot shows the proportion of home to away games played by the Pittsburgh Penguins spanning over three decades. There is a relatively uniform distribution of home and away games." }
+pit |>
+  group_by(season, location) |> # summarizing for graphing purposes
+  summarize(totals = n()) |>
+  
+  ggplot(aes(x = season, y= totals, fill = location)) +
+  geom_col(position="fill") +
+  labs(title = "Proportion of Home to Away Games Pittsburgh Penguins",
+       x = "Season",
+       y = "",
+       fill = "") +
+  scale_fill_manual(values = c("black", "#d6a53a")) +
+  theme_minimal()
+
+
+```
+
+## Win Proportion Visualization
+
+
+```{r, fig.alt= "This plot shows the proportion of wins per season by the Pittsburgh Penguins based on home versus away. The Penguins had on average a higher proportion of wins at home(.6) in comparison to away (.45)."}
+pit |>
+  group_by(season, location) |>
+  summarize(prop_wins = mean(outcome == "W")) |>
+  
+  ggplot(aes(x = location , y = prop_wins, color = location)) +
+  geom_boxplot() +
+  geom_point() +
+  labs(title = "Pittsburgh Penguins Proportion of Wins Per Season " , 
+       subtitle = "Home vs. Away",
+       y = "Proportion of Wins",
+       x = "Location of Game",
+       color ="") +
+  scale_color_manual(values = c("black", "#d6a53a")) +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+```
+
+## Permutation Test Visualization
+
+
+
+```{r, fig.alt= "The plot shows that the most simulated win-proportion differences is near zero. These values are an indication that there is no home-ice advantage. The dashed gold line, the sample statistic, is far to the right of the null distribution. Because such the extreme value is unlikely to occur by random chance, it can be inferred that playing at home increases the proportion of winning. This graph implies a true home-ice advantage."}
+perm_df |>
+  ggplot(aes(x = perms)) +
+  geom_histogram(fill = "black") +
+  geom_vline(xintercept = sample_statistics, color = "#d6a53a", 
+             linewidth = 1.2, linetype = "dashed")+
+  labs(title = "Null Distribution of the Home–Away Win Proportion Difference",
+       subtitle = "Dashed Gold Line Is The Sample Statistic",
+       x = "Difference of the Proportion of Wins and Losses (Home - Away)",
+       y = "Number of Simulations") +
+  theme_minimal()
+
+```
+
+
+## Conclusion
+
+The observed home–away win proportion difference lies in the extreme tail of the null distribution (two-sided p < 0.001). This indicates the difference is unlikely under the null. We reject the null. This supports a real home-ice advantage. Results are robust to randomization with 2,000 permutations. Future work could adjust for opponent strength in a given season.

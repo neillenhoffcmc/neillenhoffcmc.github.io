@@ -8,17 +8,15 @@ website:
     left:
       - text: Home
         href: index.qmd
-      - text: About
+      - text: Resume
         href: about.qmd
-      - text: Resources
-        href: resources.qmd
       - text: Data Visualization
         menu:
-          - text: Visualization 1
+          - text: Birth in Canada Visualization
             href: Data_Visualization.qmd
-          - text: Visualization 2
+          - text: Movie Couples Visualization
             href: Data_Visualization_2.qmd
-          - text: Text Analysis
+          - text: The Office Text Analysis
             href: Text_Analysis.qmd
           - text: Simulation Study
             href: Simulation_Study.qmd
@@ -26,16 +24,16 @@ website:
             href: Ethics- Data and Power.qmd
           - text: SQL Project
             href: SQL_Project.qmd
-
-
-      
-            
+          - text: Penguins Presentation
+            href: Pittsburgh_Penguin_Presentation.qmd
 
 
 format:
   html:
     theme: 
-      light: minty
-      dark: solar
-    css: styles.css
+      light: lux
+      dark: cyborg
+    css:
+      - styles.css
+      - typography.css
 
